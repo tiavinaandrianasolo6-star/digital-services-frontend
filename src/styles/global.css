@@ -1,0 +1,172 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+
+/* =========================================================
+   GLOBAL — BASE DU SITE
+   ========================================================= */
+
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  color: #ffffff;
+  background-color: #080808;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* HTML */
+html {
+  scroll-behavior: smooth;
+}
+
+/* BODY */
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #080808;
+  color: #ffffff;
+  
+}
+
+/* ELEMENTS */
+button,
+a,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* APP PRINCIPALE */
+.app {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(255, 43, 43, 0.055),
+      transparent 38%
+    ),
+    #080808;
+}
+
+/* =========================================================
+   ANIMATIONS GÉNÉRALES
+   ========================================================= */
+
+body {
+  animation: bodyCinematicIntro 1s ease-out both;
+}
+
+@keyframes bodyCinematicIntro {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Flash rouge d'introduction */
+.app::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  background: #ff2b2b;
+  opacity: 0;
+
+  pointer-events: none;
+  animation: redCinematicFlash 1.1s ease-out both;
+}
+
+@keyframes redCinematicFlash {
+  0% {
+    opacity: 0.08;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Apparition progressive des sections */
+.hero-section,
+.services-section,
+.quick-services-section,
+.projects-section,
+.why-section,
+.contact-section {
+  animation: sectionReveal 0.8s ease-out both;
+}
+
+.services-section {
+  animation-delay: 0.08s;
+}
+
+.quick-services-section {
+  animation-delay: 0.12s;
+}
+
+.projects-section {
+  animation-delay: 0.16s;
+}
+
+.why-section {
+  animation-delay: 0.2s;
+}
+
+.contact-section {
+  animation-delay: 0.24s;
+}
+
+@keyframes sectionReveal {
+  from {
+    opacity: 0.75;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITÉ — RÉDUIRE LES ANIMATIONS
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,305 @@
+/* =========================================================
+   NAVBAR — NAVIGATION PRINCIPALE
+========================================================= */
+
+.custom-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100%;
+  padding: 16px 0;
+  background: rgba(8, 8, 8, 0.92);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition:
+    background 0.3s ease,
+    padding 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.custom-navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: #ffffff;
+}
+
+.navbar-brand span:not(.brand-dot) {
+  color: #ffffff;
+}
+
+.brand-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: 3px;
+  border-radius: 50%;
+  background: #ff2b2b;
+  box-shadow: 0 0 12px rgba(255, 43, 43, 0.65);
+}
+
+.custom-navbar .navbar-nav {
+  align-items: center;
+  gap: 8px;
+}
+
+.custom-navbar .nav-link {
+  position: relative;
+  padding: 10px 14px;
+  color: #b9b9b9;
+  font-size: 0.91rem;
+  font-weight: 500;
+  transition: color 0.25s ease;
+}
+
+.custom-navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  right: 14px;
+  bottom: 4px;
+  left: 14px;
+  height: 2px;
+  border-radius: 2px;
+  background: #ff2b2b;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active {
+  color: #ffffff;
+}
+
+.custom-navbar .nav-link:hover::after,
+.custom-navbar .nav-link.active::after {
+  transform: scaleX(1);
+}
+
+.btn-service {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 11px 19px;
+  border: 1px solid #ff2b2b;
+  border-radius: 8px;
+  background: #ff2b2b;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 5px 20px rgba(255, 43, 43, 0.14);
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.btn-service:hover {
+  transform: translateY(-2px);
+  border-color: #ff4545;
+  background: #e92323;
+  color: #ffffff;
+  box-shadow: 0 9px 26px rgba(255, 43, 43, 0.25);
+}
+
+.custom-navbar .navbar-toggler {
+  padding: 7px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: none;
+}
+
+.custom-navbar .navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(255, 43, 43, 0.18);
+}
+
+.custom-navbar .navbar-toggler-icon {
+  filter: invert(1);
+}
+
+.test-section {
+  padding: 100px 0;
+}
+
+/* NAVBAR RESPONSIVE */
+@media (max-width: 991px) {
+  .custom-navbar {
+    padding: 13px 0;
+  }
+
+  .custom-navbar .navbar-collapse {
+    margin-top: 16px;
+    padding: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    background: #101010;
+  }
+
+  .custom-navbar .navbar-nav {
+    align-items: stretch;
+    gap: 4px;
+  }
+
+  .custom-navbar .nav-link {
+    padding: 12px 10px;
+  }
+
+  .custom-navbar .nav-link::after {
+    right: auto;
+    bottom: 5px;
+    left: 10px;
+    width: 30px;
+  }
+
+  .custom-navbar .btn-service {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+
+  .brand-dot {
+    width: 7px;
+    height: 7px;
+  }
+
+  .custom-navbar {
+    padding: 11px 0;
+  }
+}
+
+
+
+/* ================================
+   NAVBAR DES SERVICES
+================================ */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1050;
+  background: #111111;
+}
+
+.site-header .custom-navbar {
+  position: relative;
+  top: auto;
+  left: auto;
+  width: 100%;
+}
+
+.services-nav-bar {
+  width: 100%;
+  background: #1b1b1b;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.services-nav-scroll {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 10px 0;
+  scrollbar-width: thin;
+  scrollbar-color: #444 #1b1b1b;
+}
+
+.services-nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  padding: 10px 13px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: #d6d6d6;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.services-nav-link i {
+  font-size: 14px;
+}
+
+.services-nav-link:hover {
+  color: #ffffff;
+  background: #2b2b2b;
+  border-color: #444444;
+  transform: translateY(-2px);
+}
+
+.services-nav-link.crypto-nav-link {
+  color: #ff626d;
+  background: rgba(227, 38, 54, 0.09);
+  border-color: rgba(227, 38, 54, 0.25);
+}
+
+.services-nav-link.crypto-nav-link:hover {
+  color: #ffffff;
+  background: #e32636;
+  border-color: #e32636;
+}
+
+/* Ny contenu tsy tokony ho takon'ny navbar roa */
+body {
+  padding-top: 125px;
+}
+
+/* Téléphone */
+@media (max-width: 991.98px) {
+  .site-header .custom-navbar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .services-nav-scroll {
+    padding: 8px 0;
+  }
+
+  .services-nav-link {
+    padding: 9px 11px;
+    font-size: 12px;
+  }
+
+  body {
+    padding-top: 120px;
+  }
+}
+
+

@@ -1,0 +1,377 @@
+
+/* =========================================================
+   FOOTER - DIGITAL SERVICES
+   Thème : Noir / Rouge / Blanc
+   ========================================================= */
+
+.footer-section {
+  position: relative;
+  overflow: hidden;
+  padding: 75px 0 0;
+  background:
+    radial-gradient(
+      circle at 12% 10%,
+      rgba(220, 38, 38, 0.07),
+      transparent 28%
+    ),
+    #070707;
+  color: #f5f5f5;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================================
+   FOOTER MAIN LAYOUT
+   ========================================================= */
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 1.5fr 0.8fr 1fr 1.25fr;
+  gap: 45px;
+  padding-bottom: 55px;
+}
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.footer-brand {
+  max-width: 340px;
+}
+
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 22px;
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 850;
+  letter-spacing: -0.8px;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.footer-logo:hover {
+  color: #ffffff;
+  opacity: 0.85;
+}
+
+.footer-logo > span:last-child {
+  margin-left: -9px;
+  color: #f04444;
+}
+
+.brand-dot {
+  display: inline-block;
+  flex: 0 0 10px;
+  width: 10px;
+  height: 10px;
+  margin-right: 1px;
+  border-radius: 50%;
+  background: #f04444;
+  box-shadow: 0 0 15px rgba(240, 68, 68, 0.65);
+}
+
+.footer-brand > p {
+  max-width: 310px;
+  margin: 0 0 25px;
+  color: #999999;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+/* =========================================================
+   SOCIAL ICONS
+   ========================================================= */
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 11px;
+}
+
+.footer-socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 41px;
+  height: 41px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.035);
+  color: #d2d2d2;
+  font-size: 15px;
+  text-decoration: none;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.footer-socials a:hover {
+  transform: translateY(-5px);
+  border-color: #e53939;
+  background: #e53939;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(229, 57, 57, 0.2);
+}
+
+.footer-socials a:focus-visible {
+  outline: 2px solid #ff5555;
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   FOOTER COLUMNS
+   ========================================================= */
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  min-width: 0;
+}
+
+.footer-column h3 {
+  position: relative;
+  margin: 4px 0 13px;
+  padding-bottom: 13px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.footer-column h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  border-radius: 3px;
+  background: #e53939;
+  transition: width 0.3s ease;
+}
+
+.footer-column:hover h3::after {
+  width: 48px;
+}
+
+.footer-column > a:not(.footer-contact-button) {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 100%;
+  color: #999999;
+  font-size: 12px;
+  line-height: 1.7;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.footer-column > a:not(.footer-contact-button):hover {
+  transform: translateX(4px);
+  color: #ff5050;
+}
+
+/* =========================================================
+   CONTACT COLUMN
+   ========================================================= */
+
+.footer-contact > a:not(.footer-contact-button) {
+  align-items: flex-start;
+}
+
+.footer-contact > a:not(.footer-contact-button) i {
+  flex: 0 0 15px;
+  margin-top: 3px;
+  color: #f04444;
+  font-size: 13px;
+}
+
+.footer-contact-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  margin-top: 5px;
+  padding: 12px 16px;
+  border: 1px solid rgba(240, 68, 68, 0.55);
+  border-radius: 10px;
+  background: rgba(240, 68, 68, 0.08);
+  color: #ff5555;
+  font-size: 12px;
+  font-weight: 750;
+  text-decoration: none;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.footer-contact-button i {
+  font-size: 11px;
+  transition: transform 0.3s ease;
+}
+
+.footer-contact-button:hover {
+  transform: translateY(-3px);
+  background: #e53939;
+  color: #ffffff;
+  box-shadow: 0 8px 22px rgba(229, 57, 57, 0.2);
+}
+
+.footer-contact-button:hover i {
+  transform: translateX(4px);
+}
+
+/* =========================================================
+   FOOTER BOTTOM
+   ========================================================= */
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 75px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.footer-bottom > p {
+  margin: 0;
+  color: #777777;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.footer-bottom-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-bottom-links a {
+  color: #999999;
+  font-size: 11px;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.footer-bottom-links a:hover {
+  color: #ff5050;
+}
+
+.footer-bottom-links > span {
+  color: #e53939;
+  font-size: 12px;
+}
+
+/* =========================================================
+   RESPONSIVE : TABLETTES
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+  .footer-section {
+    padding-top: 60px;
+  }
+
+  .footer-main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 40px;
+    row-gap: 45px;
+    padding-bottom: 45px;
+  }
+
+  .footer-brand {
+    max-width: 400px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE : TÉLÉPHONES
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+  .footer-section {
+    padding-top: 48px;
+  }
+
+  .footer-main {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 34px;
+    padding-bottom: 35px;
+  }
+
+  .footer-brand {
+    max-width: 100%;
+  }
+
+  .footer-logo {
+    font-size: 23px;
+  }
+
+  .footer-brand > p {
+    max-width: 100%;
+    font-size: 12px;
+  }
+
+  .footer-column {
+    gap: 12px;
+  }
+
+  .footer-column h3 {
+    margin-bottom: 8px;
+  }
+
+  .footer-column > a:not(.footer-contact-button) {
+    font-size: 12px;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px 0 25px;
+  }
+
+  .footer-bottom > p,
+  .footer-bottom-links a {
+    font-size: 10px;
+  }
+
+  .footer-bottom-links {
+    gap: 9px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITÉ
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-logo,
+  .footer-socials a,
+  .footer-column h3::after,
+  .footer-column > a,
+  .footer-contact-button,
+  .footer-contact-button i,
+  .footer-bottom-links a {
+    transition: none !important;
+  }
+}

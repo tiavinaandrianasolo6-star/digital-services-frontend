@@ -1,0 +1,491 @@
+/* ==========================================
+   QUICK SERVICES SECTION
+========================================== */
+
+.quick-services-section {
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 10% 15%,
+      rgba(255, 45, 45, 0.055),
+      transparent 30%
+    ),
+    #080808;
+  scroll-margin-top: 90px;
+}
+
+.quick-services-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.quick-services-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 35px;
+  margin-bottom: 48px;
+}
+
+.quick-services-header > div {
+  flex: 1;
+}
+
+.quick-services-header .section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 17px;
+  color: #ff4242;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+.quick-services-header .section-label::before {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background: #ff3535;
+  border-radius: 2px;
+}
+
+.quick-services-header h2 {
+  max-width: 650px;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(2rem, 3.5vw, 3.15rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1.2px;
+}
+
+.quick-services-header h2 span {
+  display: block;
+  margin-top: 5px;
+  color: #ff4141;
+}
+
+.quick-services-header > p {
+  flex: 0 1 390px;
+  margin: 0 0 5px;
+  color: #a3a3a3;
+  font-size: 0.96rem;
+  line-height: 1.9;
+}
+
+/* ==========================================
+   SERVICE CARDS
+========================================== */
+
+.quick-services-section .row {
+  row-gap: 20px;
+}
+
+.quick-service-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 315px;
+  padding: 27px 23px 23px;
+  overflow: hidden;
+  background: linear-gradient(
+    145deg,
+    #151515 0%,
+    #0d0d0d 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.085);
+  border-radius: 17px;
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+/* Trait rouge supérieur */
+
+.quick-service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: #ff3838;
+  transition: width 0.35s ease;
+}
+
+/* Halo discret au survol */
+
+.quick-service-card::after {
+  content: "";
+  position: absolute;
+  top: -65px;
+  right: -65px;
+  width: 140px;
+  height: 140px;
+  background: rgba(255, 45, 45, 0.055);
+  border-radius: 50%;
+  filter: blur(35px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.quick-service-card:hover {
+  transform: translateY(-7px);
+  background: linear-gradient(
+    145deg,
+    #191313 0%,
+    #101010 100%
+  );
+  border-color: rgba(255, 65, 65, 0.38);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28);
+}
+
+.quick-service-card:hover::before {
+  width: 100%;
+}
+
+.quick-service-card:hover::after {
+  opacity: 1;
+}
+
+/* ==========================================
+   ICON
+========================================== */
+
+.quick-service-icon {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 53px;
+  height: 53px;
+  margin-bottom: 24px;
+  color: #ff4848;
+  font-size: 1.35rem;
+  background: rgba(255, 55, 55, 0.09);
+  border: 1px solid rgba(255, 65, 65, 0.17);
+  border-radius: 15px;
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.quick-service-card:hover .quick-service-icon {
+  color: #ffffff;
+  background: #ed3434;
+  border-color: #ed3434;
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* ==========================================
+   NUMBER
+========================================== */
+
+.quick-service-number {
+  position: absolute;
+  top: 26px;
+  right: 22px;
+  color: rgba(255, 255, 255, 0.17);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.quick-service-card:hover .quick-service-number {
+  color: rgba(255, 70, 70, 0.7);
+}
+
+/* ==========================================
+   TITLE & DESCRIPTION
+========================================== */
+
+.quick-service-card h3 {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 12px;
+  color: #f7f7f7;
+  font-size: 1.06rem;
+  font-weight: 750;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.quick-service-card p {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 22px;
+  color: #a5a5a5;
+  font-size: 0.88rem;
+  line-height: 1.85;
+}
+
+/* ==========================================
+   LINK DEMANDER
+========================================== */
+
+.quick-service-link {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 15px;
+  color: #ff5151;
+  font-size: 0.87rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  width: 100%;
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.quick-service-link i {
+  font-size: 0.78rem;
+  transition: transform 0.25s ease;
+}
+
+.quick-service-link:hover {
+  color: #ffffff;
+  border-color: rgba(255, 65, 65, 0.35);
+}
+
+.quick-service-link:hover i {
+  transform: translateX(5px);
+}
+
+/* ==========================================
+   CALL TO ACTION
+========================================== */
+
+.quick-services-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  margin-top: 42px;
+  padding: 28px 32px;
+  background: linear-gradient(
+    105deg,
+    rgba(255, 49, 49, 0.1),
+    rgba(255, 255, 255, 0.025)
+  );
+  border: 1px solid rgba(255, 65, 65, 0.2);
+  border-radius: 16px;
+}
+
+.quick-services-cta > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.quick-services-cta > div span {
+  color: #a9a9a9;
+  font-size: 0.9rem;
+}
+
+.quick-services-cta > div strong {
+  color: #ffffff;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.quick-services-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 49px;
+  padding: 0 22px;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  background: #e93636;
+  border: 1px solid #e93636;
+  border-radius: 9px;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.quick-services-cta-button:hover {
+  color: #ffffff;
+  background: #ff4848;
+  border-color: #ff4848;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(255, 45, 45, 0.2);
+}
+
+.quick-services-cta-button i {
+  font-size: 0.8rem;
+  transition: transform 0.25s ease;
+}
+
+.quick-services-cta-button:hover i {
+  transform: translateX(4px);
+}
+
+/* ==========================================
+   RESPONSIVE — TABLET
+========================================== */
+
+@media (max-width: 991px) {
+  .quick-services-section {
+    padding: 80px 0;
+  }
+
+  .quick-services-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 36px;
+  }
+
+  .quick-services-header h2 {
+    font-size: clamp(2rem, 5vw, 2.7rem);
+  }
+
+  .quick-services-header > p {
+    flex: auto;
+    max-width: 600px;
+  }
+
+  .quick-service-card {
+    min-height: 290px;
+    padding: 24px 21px 21px;
+  }
+
+  .quick-services-cta {
+    margin-top: 32px;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE — MOBILE
+========================================== */
+
+@media (max-width: 575px) {
+  .quick-services-section {
+    padding: 62px 0;
+  }
+
+  .quick-services-header {
+    gap: 15px;
+    margin-bottom: 28px;
+  }
+
+  .quick-services-header .section-label {
+    margin-bottom: 13px;
+    font-size: 0.7rem;
+  }
+
+  .quick-services-header h2 {
+    font-size: 2rem;
+    letter-spacing: -0.7px;
+  }
+
+  .quick-services-header h2 span {
+    margin-top: 8px;
+  }
+
+  .quick-services-header > p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+  }
+
+  .quick-services-section .row {
+    row-gap: 14px;
+  }
+
+  .quick-service-card {
+    min-height: 0;
+    padding: 23px 21px;
+    border-radius: 14px;
+  }
+
+  .quick-service-icon {
+    width: 47px;
+    height: 47px;
+    margin-bottom: 19px;
+    font-size: 1.2rem;
+    border-radius: 13px;
+  }
+
+  .quick-service-number {
+    top: 24px;
+    right: 20px;
+  }
+
+  .quick-service-card h3 {
+    font-size: 1.02rem;
+  }
+
+  .quick-service-card p {
+    margin-bottom: 20px;
+    font-size: 0.87rem;
+  }
+
+  .quick-services-cta {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 25px;
+    padding: 23px 21px;
+  }
+
+  .quick-services-cta > div strong {
+    font-size: 1.25rem;
+  }
+
+  .quick-services-cta-button {
+    width: 100%;
+    white-space: normal;
+  }
+}
+
+/* ==========================================
+   ACCESSIBILITÉ
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .quick-service-card,
+  .quick-service-card::before,
+  .quick-service-icon,
+  .quick-service-link,
+  .quick-service-link i,
+  .quick-services-cta-button,
+  .quick-services-cta-button i {
+    transition: none;
+  }
+
+  .quick-service-card:hover,
+  .quick-service-card:hover .quick-service-icon,
+  .quick-services-cta-button:hover {
+    transform: none;
+  }
+}
+

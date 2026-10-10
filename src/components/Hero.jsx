@@ -1,4 +1,5 @@
 import heroImage from '../assets/images/color.png'
+
 function Hero() {
   return (
     <section className="hero-section">
@@ -7,7 +8,6 @@ function Hero() {
 
           {/* LEFT */}
           <div className="col-lg-7">
-
             <div className="hero-badge">
               <span className="status-dot"></span>
               Disponible pour de nouveaux projets
@@ -51,108 +51,114 @@ function Hero() {
                 <span>IA assistée</span>
               </div>
             </div>
-
           </div>
 
           {/* RIGHT */}
           <div className="col-lg-5">
-
             <div className="hero-visual">
 
               <div className="glow glow-one"></div>
               <div className="glow glow-two"></div>
 
-              <div className="service-panel"style={{ backgroundImage: `url(${heroImage})` }}>
+              {/* 3D INFINITE CARD */}
+              <div className="service-panel-3d">
 
-                <div className="panel-header">
-                  <div>
-                    <span className="panel-label">
-                      DIGITAL SERVICES
+                <div
+                  className="service-panel"
+                  style={{
+                    backgroundImage: `url(${heroImage})`,
+                  }}
+                >
+
+                  <div className="panel-header">
+                    <div>
+                      <span className="panel-label">
+                        DIGITAL SERVICES
+                      </span>
+
+                      <h3>
+                        Votre besoin.
+                        <br />
+                        Ma solution.
+                      </h3>
+                    </div>
+
+                    <div className="panel-icon">
+                      <i className="fas fa-layer-group"></i>
+                    </div>
+                  </div>
+
+                  <div className="service-list">
+
+                    <div className="service-item">
+                      <div className="service-icon">
+                        <i className="fas fa-code"></i>
+                      </div>
+
+                      <div>
+                        <strong>Web Development</strong>
+                        <small>Sites & applications</small>
+                      </div>
+
+                      <i className="fas fa-check service-check"></i>
+                    </div>
+
+                    <div className="service-item">
+                      <div className="service-icon">
+                        <i className="fas fa-robot"></i>
+                      </div>
+
+                      <div>
+                        <strong>AI & Productivity</strong>
+                        <small>Gagner du temps</small>
+                      </div>
+
+                      <i className="fas fa-check service-check"></i>
+                    </div>
+
+                    <div className="service-item">
+                      <div className="service-icon">
+                        <i className="fas fa-palette"></i>
+                      </div>
+
+                      <div>
+                        <strong>Design Digital</strong>
+                        <small>Visuels & contenus</small>
+                      </div>
+
+                      <i className="fas fa-check service-check"></i>
+                    </div>
+
+                    <div className="service-item">
+                      <div className="service-icon">
+                        <i className="fas fa-wrench"></i>
+                      </div>
+
+                      <div>
+                        <strong>Debug & Maintenance</strong>
+                        <small>Corriger & améliorer</small>
+                      </div>
+
+                      <i className="fas fa-check service-check"></i>
+                    </div>
+
+                  </div>
+
+                  <div className="panel-footer">
+                    <span>
+                      <i className="fas fa-circle"></i>
+                      Disponible maintenant
                     </span>
 
-                    <h3>
-                      Votre besoin.
-                      <br />
-                      Ma solution.
-                    </h3>
-                  </div>
-
-                  <div className="panel-icon">
-                    <i className="fas fa-layer-group"></i>
-                  </div>
-                </div>
-
-                <div className="service-list">
-
-                  <div className="service-item">
-                    <div className="service-icon">
-                      <i className="fas fa-code"></i>
-                    </div>
-
-                    <div>
-                      <strong>Web Development</strong>
-                      <small>Sites & applications</small>
-                    </div>
-
-                    <i className="fas fa-check service-check"></i>
-                  </div>
-
-                  <div className="service-item">
-                    <div className="service-icon">
-                      <i className="fas fa-robot"></i>
-                    </div>
-
-                    <div>
-                      <strong>AI & Productivity</strong>
-                      <small>Gagner du temps</small>
-                    </div>
-
-                    <i className="fas fa-check service-check"></i>
-                  </div>
-
-                  <div className="service-item">
-                    <div className="service-icon">
-                      <i className="fas fa-palette"></i>
-                    </div>
-
-                    <div>
-                      <strong>Design Digital</strong>
-                      <small>Visuels & contenus</small>
-                    </div>
-
-                    <i className="fas fa-check service-check"></i>
-                  </div>
-
-                  <div className="service-item">
-                    <div className="service-icon">
-                      <i className="fas fa-wrench"></i>
-                    </div>
-
-                    <div>
-                      <strong>Debug & Maintenance</strong>
-                      <small>Corriger & améliorer</small>
-                    </div>
-
-                    <i className="fas fa-check service-check"></i>
+                    <span>
+                      <i className="fas fa-arrow-up-right-from-square"></i>
+                    </span>
                   </div>
 
                 </div>
-
-                <div className="panel-footer">
-                  <span>
-                    <i className="fas fa-circle"></i>
-                    Disponible maintenant
-                  </span>
-
-                  <span>
-                    <i className="fas fa-arrow-up-right-from-square"></i>
-                  </span>
-                </div>
-
               </div>
 
             </div>
-
           </div>
 
         </div>
