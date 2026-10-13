@@ -93,34 +93,212 @@
   transform: scaleX(1);
 }
 
+
+/* =========================================
+   T.A DIGITAL SERVICES — PRO 3D BUTTON
+========================================= */
+
 .btn-service {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 9px;
-  padding: 11px 19px;
-  border: 1px solid #ff2b2b;
-  border-radius: 8px;
-  background: #ff2b2b;
+
+  padding: 12px 21px;
+
+  border: 1px solid #ff4545;
+  border-radius: 9px;
+
+  background: linear-gradient(
+    145deg,
+    #ff4545 0%,
+    #ff2020 45%,
+    #c90000 100%
+  );
+
   color: #ffffff;
   font-size: 0.9rem;
   font-weight: 700;
+  letter-spacing: 0.2px;
   text-decoration: none;
-  box-shadow: 0 5px 20px rgba(255, 43, 43, 0.14);
+  white-space: nowrap;
+
+  transform: perspective(800px) translateY(0) rotateX(0deg);
+  transform-style: preserve-3d;
+  transform-origin: center bottom;
+
+  box-shadow:
+    0 5px 0 #a80000,
+    0 8px 15px rgba(255, 25, 25, 0.22),
+    0 0 0 rgba(255, 35, 35, 0);
+
   transition:
-    background 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease,
-    transform 0.25s ease;
+    transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+
+  animation: serviceButtonFloat 3.5s ease-in-out infinite;
 }
 
-.btn-service:hover {
-  transform: translateY(-2px);
-  border-color: #ff4545;
-  background: #e92323;
-  color: #ffffff;
-  box-shadow: 0 9px 26px rgba(255, 43, 43, 0.25);
+/* Reflet lumineux */
+.btn-service::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -80%;
+  width: 45%;
+  height: 200%;
+
+  z-index: -1;
+  pointer-events: none;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.65),
+    rgba(255, 255, 255, 0.12),
+    transparent
+  );
+
+  transform: rotate(25deg);
+  animation: serviceButtonShine 4s ease-in-out infinite;
 }
+
+/* Lueur rouge derrière le bouton */
+.btn-service::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -2;
+  border-radius: inherit;
+
+  background: #470e0e;
+  filter: blur(15px);
+  opacity: 0.18;
+
+  transition:
+    opacity 0.3s ease,
+    filter 0.3s ease;
+}
+
+/* Texte et icône au-dessus du reflet */
+.btn-service > * {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-service i {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+/* Hover 3D */
+.btn-service:hover {
+  transform:
+    perspective(800px)
+    translateY(-5px)
+    rotateX(7deg)
+    scale(1.025);
+
+  border-color: #ff7777;
+
+  background: linear-gradient(
+    145deg,
+    #ff5c5c 0%,
+    #ff2929 45%,
+    #e00000 100%
+  );
+
+  color: #ffffff;
+
+  box-shadow:
+    0 8px 0 #970000,
+    0 15px 28px rgba(255, 25, 25, 0.34),
+    0 0 25px rgba(255, 35, 35, 0.24);
+
+  animation-play-state: paused;
+}
+
+.btn-service:hover::after {
+  opacity: 0.45;
+  filter: blur(20px);
+}
+
+.btn-service:hover i {
+  transform: translateX(4px) rotate(-5deg);
+}
+
+/* Effet pression rehefa tsindriana */
+.btn-service:active {
+  transform:
+    perspective(800px)
+    translateY(3px)
+    rotateX(-3deg)
+    scale(0.98);
+
+  box-shadow:
+    0 2px 0 #970000,
+    0 4px 9px rgba(255, 25, 25, 0.2);
+
+  transition-duration: 0.08s;
+}
+
+/* Focus clavier */
+.btn-service:focus-visible {
+  outline: 3px solid rgba(255, 80, 80, 0.8);
+  outline-offset: 5px;
+}
+
+/* Animation 3D mitsingevana */
+@keyframes serviceButtonFloat {
+  0%,
+  100% {
+    transform:
+      perspective(800px)
+      translateY(0)
+      rotateX(0deg);
+  }
+
+  50% {
+    transform:
+      perspective(800px)
+      translateY(-3px)
+      rotateX(2deg);
+  }
+}
+
+/* Reflet mandalo */
+@keyframes serviceButtonShine {
+  0%,
+  15% {
+    left: -80%;
+  }
+
+  55%,
+  100% {
+    left: 150%;
+  }
+}
+
+/* Accessibilité : animation réduite */
+@media (prefers-reduced-motion: reduce) {
+  .btn-service,
+  .btn-service::before {
+    animation: none;
+  }
+
+  .btn-service,
+  .btn-service i {
+    transition: none;
+  }
+}
+
 
 .custom-navbar .navbar-toggler {
   padding: 7px 10px;
@@ -222,14 +400,36 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.09);
 }
 
+
+/* NAVBAR SERVICES - INFINITE SCROLL */
+
+.services-nav-bar {
+  width: 100%;
+  overflow: hidden;
+  background: #1b1b1b;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
 .services-nav-scroll {
+  width: 100%;
+  overflow: hidden;
+}
+
+.services-nav-track {
+  display: flex;
+  width: max-content;
+  animation: services-scroll-right 35s linear infinite;
+  will-change: transform;
+}
+
+.services-nav-group {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
   gap: 8px;
-  overflow-x: auto;
-  padding: 10px 0;
-  scrollbar-width: thin;
-  scrollbar-color: #444 #1b1b1b;
+  padding: 10px 4px;
+  padding-right: 12px;
 }
 
 .services-nav-link {
@@ -249,9 +449,72 @@
   transition:
     color 0.25s ease,
     background 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.25s ease;
+    border-color 0.25s ease;
 }
+
+.services-nav-link i {
+  font-size: 14px;
+}
+
+.services-nav-link:hover {
+  color: #ffffff;
+  background: #2b2b2b;
+  border-color: #444444;
+}
+
+.services-nav-link.crypto-nav-link {
+  color: #ff626d;
+  background: rgba(227, 38, 54, 0.09);
+  border-color: rgba(227, 38, 54, 0.25);
+}
+
+.services-nav-link.crypto-nav-link:hover {
+  color: #ffffff;
+  background: #e32636;
+}
+
+/* Mihetsika miankavanana */
+@keyframes services-scroll-right {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Miato rehefa apetraka eo amboniny ny souris */
+.services-nav-scroll:hover .services-nav-track,
+.services-nav-scroll:focus-within .services-nav-track {
+  animation-play-state: paused;
+}
+
+/* Ho an'ny olona misafidy animation mihena */
+@media (prefers-reduced-motion: reduce) {
+  .services-nav-track {
+    animation: none;
+    transform: none;
+  }
+
+  .services-nav-scroll {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .services-nav-group {
+    gap: 6px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .services-nav-link {
+    padding: 9px 11px;
+    font-size: 12px;
+  }
+}
+
 
 .services-nav-link i {
   font-size: 14px;

@@ -105,22 +105,35 @@ function Navbar() {
       {/* DEUXIÈME NAVBAR : TOUS LES SERVICES */}
       <div className="services-nav-bar">
         <div className="container">
+          
           <div className="services-nav-scroll">
-            {serviceLinks.map((service) => (
-              <Link
-                key={service.path}
-                to={service.path}
-                className={`services-nav-link ${
-                  service.path === '/services/assistance-crypto'
-                    ? 'crypto-nav-link'
-                    : ''
-                }`}
-              >
-                <i className={service.icon}></i>
-                <span>{service.label}</span>
-              </Link>
-            ))}
+            <div className="services-nav-track">
+              {[0, 1].map((copy) => (
+                <div
+                  className="services-nav-group"
+                  key={copy}
+                  aria-hidden={copy === 1 ? 'true' : undefined}
+                >
+                  {serviceLinks.map((service) => (
+                    <Link
+                      key={`${copy}-${service.path}`}
+                      to={service.path}
+                      tabIndex={copy === 1 ? -1 : undefined}
+                      className={`services-nav-link ${
+                        service.path === '/services/assistance-crypto'
+                          ? 'crypto-nav-link'
+                          : ''
+                      }`}
+                    >
+                      <i className={service.icon}></i>
+                      <span>{service.label}</span>
+                    </Link>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
+
         </div>
       </div>
     </header>

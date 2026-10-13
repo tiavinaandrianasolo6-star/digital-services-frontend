@@ -39,32 +39,114 @@
   row-gap: 55px;
 }
 
-/* BADGE */
+
+/* =========================================
+   HERO BADGE — PULSE PREMIUM
+========================================= */
+
 .hero-badge {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 27px;
-  padding: 9px 15px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  padding: 10px 16px;
+  margin-bottom: 25px;
+
+  border: none;
   border-radius: 50px;
-  background: rgba(255, 255, 255, 0.035);
-  color: #d0d0d0;
-  font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.2px;
+
+  background: linear-gradient(
+    100deg,
+    rgba(255, 43, 43, 0.12),
+    rgba(255, 255, 255, 0.035),
+    rgba(255, 43, 43, 0.08)
+  );
+
+  color: #f4f4f4;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+
+  box-shadow:
+    0 0 18px rgba(255, 43, 43, 0.08),
+    inset 0 0 15px rgba(255, 43, 43, 0.035);
+
+  animation: badgeGlow 3s ease-in-out infinite;
 }
 
+/* Point rouge animé */
 .status-dot {
   position: relative;
-  display: inline-block;
+  flex: 0 0 8px;
   width: 8px;
   height: 8px;
-  flex-shrink: 0;
   border-radius: 50%;
-  background: #43df87;
-  box-shadow: 0 0 10px rgba(67, 223, 135, 0.55);
+
+  background: #ff3838;
+
+  box-shadow:
+    0 0 8px rgba(5, 255, 88, 0.9),
+    0 0 18px rgba(9, 241, 113, 0.55);
+
+  animation: statusBlink 1.6s ease-in-out infinite;
 }
+
+/* Halo autour du point */
+.status-dot::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+
+  background: rgba(7, 245, 126, 0.22);
+
+  animation: statusRipple 2s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes badgeGlow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 12px rgba(255, 43, 43, 0.06),
+      inset 0 0 12px rgba(255, 43, 43, 0.025);
+    background-color: rgba(255, 255, 255, 0.015);
+  }
+
+  50% {
+    box-shadow:
+      0 0 28px rgba(255, 43, 43, 0.15),
+      inset 0 0 20px rgba(255, 43, 43, 0.055);
+    background-color: rgba(255, 43, 43, 0.045);
+  }
+}
+
+@keyframes statusBlink {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.55;
+    transform: scale(0.78);
+  }
+}
+
+@keyframes statusRipple {
+  0% {
+    transform: scale(0.55);
+    opacity: 0.75;
+  }
+
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
 
 .status-dot::after {
   content: "";
@@ -87,70 +169,168 @@
   }
 }
 
-/* TITRE PRINCIPAL */
+
+/* =========================================
+   HERO TITLE — CINEMATIC 3D REVEAL
+========================================= */
+
 .hero-title {
   max-width: 720px;
   margin: 0 0 25px;
+
   color: #ffffff;
   font-family: "Black Ops One", system-ui, sans-serif;
   font-size: clamp(2.5rem, 5vw, 4.8rem);
   font-weight: 400;
   line-height: 1.13;
   letter-spacing: -1.5px;
+
   overflow-wrap: break-word;
-  animation: heroTitleReveal 1.2s ease-out both;
-  transform-origin: center left;
-}
-
-.hero-title span {
-  display: inline-block;
-  color: #ff2b2b;
-  text-shadow: 0 0 28px rgba(255, 43, 43, 0.17);
-  animation: heroTitleAccent 1s ease-out 0.25s both;
   transform-origin: left center;
+
+  perspective: 1000px;
+
+  animation: heroTitle3DReveal 1.35s
+    cubic-bezier(0.16, 1, 0.3, 1) both infinite;
 }
 
-@keyframes heroTitleReveal {
+/* Accent rouge */
+.hero-title span {
+  position: relative;
+  display: inline-block;
+
+  color: #ff3030;
+
+  text-shadow:
+    0 2px 0 #9f1111,
+    0 4px 0 rgba(100, 0, 0, 0.35),
+    0 8px 22px rgba(255, 43, 43, 0.22);
+
+  transform-origin: left center;
+  transform-style: preserve-3d;
+
+  animation:
+    heroAccent3DReveal 1.25s
+    cubic-bezier(0.16, 1, 0.3, 1) 0.35s both,
+    heroAccentGlow 4s ease-in-out 1.8s infinite;
+}
+
+/* Apparition 3D du titre */
+@keyframes heroTitle3DReveal {
   0% {
     opacity: 0;
-    transform: translateY(18px) scale(0.94);
+    transform:
+      perspective(1000px)
+      translate3d(0, 45px, -100px)
+      rotateX(-12deg)
+      scale(0.94);
+    filter: blur(8px);
   }
 
-  55% {
+  65% {
     opacity: 1;
-    transform: translateY(0) scale(1.04);
-  }
-
-  75% {
-    transform: translateY(0) scale(0.99);
+    transform:
+      perspective(1000px)
+      translate3d(0, -3px, 12px)
+      rotateX(2deg)
+      scale(1.015);
+    filter: blur(0);
   }
 
   100% {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform:
+      perspective(1000px)
+      translate3d(0, 0, 0)
+      rotateX(0)
+      scale(1);
+    filter: blur(0);
   }
 }
 
-@keyframes heroTitleAccent {
+/* Accent rouge : apparition en profondeur */
+@keyframes heroAccent3DReveal {
   0% {
     opacity: 0;
-    transform: scale(0.88);
+    transform:
+      perspective(800px)
+      translate3d(0, 28px, -60px)
+      rotateX(-18deg)
+      rotateY(-5deg)
+      scale(0.94);
+    filter: blur(6px);
+    text-shadow: none;
   }
 
   60% {
     opacity: 1;
-    transform: scale(1.05);
+    transform:
+      perspective(800px)
+      translate3d(0, -2px, 10px)
+      rotateX(3deg)
+      rotateY(1deg)
+      scale(1.025);
+    filter: blur(0);
   }
 
   80% {
-    transform: scale(0.98);
+    transform:
+      perspective(800px)
+      translate3d(0, 1px, 0)
+      rotateX(-1deg)
+      rotateY(0)
+      scale(0.995);
   }
 
   100% {
     opacity: 1;
-    transform: scale(1);
+    transform:
+      perspective(800px)
+      translate3d(0, 0, 0)
+      rotateX(0)
+      rotateY(0)
+      scale(1);
+    filter: blur(0);
   }
 }
+
+/* Glow rouge discret après apparition */
+@keyframes heroAccentGlow {
+  0%,
+  100% {
+    text-shadow:
+      0 2px 0 #9f1111,
+      0 4px 0 rgba(100, 0, 0, 0.35),
+      0 8px 22px rgba(255, 43, 43, 0.18);
+  }
+
+  50% {
+    text-shadow:
+      0 2px 0 #9f1111,
+      0 4px 0 rgba(100, 0, 0, 0.35),
+      0 8px 32px rgba(255, 43, 43, 0.42),
+      0 0 48px rgba(255, 43, 43, 0.12);
+  }
+}
+
+/* Accessibilité */
+@media (prefers-reduced-motion: reduce) {
+  .hero-badge,
+  .status-dot,
+  .status-dot::after,
+  .hero-title,
+  .hero-title span {
+    animation: none !important;
+  }
+
+  .hero-title,
+  .hero-title span {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+
 
 /* DESCRIPTION */
 .hero-description {
@@ -264,7 +444,7 @@
   width: 100%;
   max-width: 490px;
   transform-style: preserve-3d;
-  animation: infinite3D 7s ease-in-out infinite;
+  animation: infinite3D 6s ease-in-out infinite;
   will-change: transform;
 }
 
@@ -306,33 +486,33 @@
 
   25% {
     transform:
-      translate3d(8px, -10px, 15px)
+      translate3d(18px, -20px, 30px)
       rotateX(2deg)
-      rotateY(5deg)
-      rotateZ(0.5deg);
+      rotateY(30deg)
+      rotateZ(10deg);
   }
 
   50% {
     transform:
       translate3d(0, -16px, 25px)
       rotateX(-2deg)
-      rotateY(2deg)
-      rotateZ(-0.5deg);
+      rotateY(10deg)
+      rotateZ(-0deg);
   }
 
   75% {
     transform:
       translate3d(-8px, -8px, 15px)
-      rotateX(2deg)
-      rotateY(-5deg)
-      rotateZ(0.5deg);
+      rotateX(30deg)
+      rotateY(-0deg)
+      rotateZ(0deg);
   }
 
   100% {
     transform:
       translate3d(0, 0, 0)
       rotateX(0deg)
-      rotateY(-2deg)
+      rotateY(-4deg)
       rotateZ(0deg);
   }
 }
